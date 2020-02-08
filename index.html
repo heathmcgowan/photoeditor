@@ -127,12 +127,48 @@
                 <div class="custom-text-container">
                     <label for="custom-text">Add Text</label>
                     <textarea name="custom-text" rows="4" id="custom-text"></textarea>
-                    <input type="submit" onclick="addText()" id="custom-text-submit" value="Add">
-                    <input type="submit" onclick="removeText()" id="custom-text-remove" value="Remove">
+                    <div>
+                        <input type="submit" onclick="addText()" id="custom-text-submit" value="Add">
+                        <input type="submit" onclick="removeText()" id="custom-text-remove" value="Remove">
+                    </div>            
                 </div>
                 <div class="color-picker-container">
-                    <label for="text-color">Text Color</label>
-                    <input type="color" name="text-color" value="#000000" id="text-color" class="color-pickers" data-contenttocolor="text">
+                    <label for="text-shadow-color">Text Color</label>
+                    <input type="color" name="text-color" value="#FFFFFF" id="text-color" class="color-pickers" data-contenttocolor="text">
+                </div>
+                <div class="color-picker-container">
+                    <label for="text-shadow-color">Text Shadow Color</label>
+                    <input type="color" name="text-shadow-color" value="#FFFFFF" id="text-shadow-color" class="color-pickers" data-contenttocolor="text-shadow">
+                </div>
+                <div class="slider-container">
+                    <label for="slider-textSize">Font Size</label>
+                    <input type="range" name="slider-textSize" min="1" max="200" value="40" id="slider-textSize" class="sliders" data-filter="textSize" data-suffix="px">
+                    <p id="textSize-value">40px</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-textX">X Position</label>
+                    <input type="range" name="slider-textX" min="0" max="100" value="0" id="slider-textX" class="sliders" data-filter="textX" data-suffix="%">
+                    <p id="textX-value">0</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-textY">Y Position</label>
+                    <input type="range" name="slider-textY" min="0" max="100" value="0" id="slider-textY" class="sliders" data-filter="textY" data-suffix="%">
+                    <p id="textY-value">0%</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-textShadowX">Text Shadow X Position</label>
+                    <input type="range" name="slider-textShadowX" min="-20" max="20" value="0" id="slider-textShadowX" class="sliders" data-filter="textShadowX" data-suffix="px">
+                    <p id="textShadowX-value">0px</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-textShadowY">Text Shadow Y Position</label>
+                    <input type="range" name="slider-textShadowY" min="-20" max="20" value="0" id="slider-textShadowY" class="sliders" data-filter="textShadowY" data-suffix="px">
+                    <p id="textShadowY-value">0px</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-textShadowBlur">Text Shadow Blur</label>
+                    <input type="range" name="slider-textShadowBlur" min="0" max="10" value="0" id="slider-textShadowBlur" class="sliders" data-filter="textShadowBlur" data-suffix="px">
+                    <p id="textShadowBlur-value">0px</p>
                 </div>
                 <!-- <div class="checkbox-container">
                     <label for="gradient-overlay-checkbox">Show Gradient Overlay</label>

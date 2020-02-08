@@ -67,6 +67,8 @@ function updateColor() {
         canvas.style.backgroundColor = selectedColor;
     } else if (contentToColor == 'text') {
         document.documentElement.style.setProperty('--textColor', selectedColor);
+    } else if (contentToColor == 'text-shadow') {
+        document.documentElement.style.setProperty('--textShadowColor', selectedColor);
     };
 }
 

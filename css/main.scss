@@ -25,9 +25,14 @@ $primary-color: #fff;
 	--skewX: 0deg;
     --skewY: 0deg;
     --rotate: 0deg;
-    --textY: 50%;
-    --textX: 50%;
-    --textColor: #000000;
+    --textX: 0;
+    --textY: 0;
+    --textColor: #FFFFFF;
+    --textSize: 40px;
+    --textShadowX: 0px;
+    --textShadowY: 0px;
+    --textShadowColor: #000000;
+    --textShadowBlur: 0px;
 }
 
 
@@ -110,22 +115,30 @@ main {
     left: var(--textX);
     white-space: pre-wrap;
     color: var(--textColor);
+    font-size: var(--textSize);
+    text-shadow: var(--textShadowX) var(--textShadowY) var(--textShadowBlur) var(--textShadowColor);
 }
 
 .custom-text-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     label {
         font-size: 16px;
-        margin-bottom: 5px;
+        margin: 0 5px 5px 0;
     }
     textarea {
-        width: 300px;
-    };
-    input {
-        width: 150px;
-        margin-top: 5px;
+        width: 200px;
+        margin-bottom: 5px;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        input {
+            width: 100px;
+            margin: 0 0 5px 5px;
+            height: 31px;
+        }
     }
 }
 
