@@ -101,6 +101,7 @@ main {
   display: none;
   margin-top: 15px;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   font-size: 14px; }
 
