@@ -33,6 +33,9 @@ $primary-color: #fff;
     --textShadowY: 0px;
     --textShadowColor: #000000;
     --textShadowBlur: 0px;
+    --textFont: 'Roboto';
+    --textFontWeight: 400;
+    --letterSpacing: 0px;
 }
 
 
@@ -115,8 +118,11 @@ main {
     left: var(--textX);
     white-space: pre-wrap;
     color: var(--textColor);
+    font-family: var(--textFont);
+    font-weight: var(--textFontWeight);
     font-size: var(--textSize);
     text-shadow: var(--textShadowX) var(--textShadowY) var(--textShadowBlur) var(--textShadowColor);
+    letter-spacing: var(--letterSpacing);
 }
 
 .custom-text-container {
@@ -210,6 +216,29 @@ main {
         height: 20px;
         margin: 0 110px 0 10px;
     }
+}
+
+// Font selection
+#font-container {
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 380px;
+    margin-bottom: 10px;
+    div {
+        width: 50%;
+        padding: 5px;
+        border: 1px solid white;
+    }
+}
+
+.non-selected-font:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.selected-font {
+    color: #1b1c2f;
+    background-color: #FFFFFF;
 }
 
 // Modifiers

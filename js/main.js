@@ -4,12 +4,17 @@ const sliders = document.querySelectorAll('.sliders');
 const colorPickers = document.querySelectorAll('.color-pickers');
 const controls = document.getElementById('controls');
 const rotateCheckbox = document.getElementById('spin-checkbox');
+const boldCheckbox = document.getElementById('bold-checkbox');
 const displayedText = document.getElementById('text-overlay');
+const fontOption = document.querySelectorAll('.font-option');
 
 // Event listeners
 sliders.forEach(input => input.addEventListener('input', updateFilter));
 
 colorPickers.forEach(input => input.addEventListener('input', updateColor));
+
+fontOption.forEach(fontOption => fontOption.style.fontFamily = fontOption.dataset.font);
+fontOption.forEach(fontOption => fontOption.addEventListener('click', updateFont));
 
 loadImage();
 
@@ -42,6 +47,14 @@ rotateCheckbox.addEventListener('change', function() {
         for (var i = 0; 1 < translateSettings.length; i++) {
             translateSettings[i].style.opacity = 1;
         };
+    }
+});
+
+boldCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+        document.documentElement.style.setProperty(`--textFontWeight`, 700);
+    } else {
+        document.documentElement.style.setProperty(`--textFontWeight`, 400);
     }
 });
 
@@ -79,4 +92,12 @@ function addText() {
 
 function removeText() {
     displayedText.innerHTML = "";
+}
+
+function updateFont() {
+    let selectedFont = this.dataset.font;
+    fontOption.forEach(fontOption => fontOption.classList.remove('selected-font'));
+    this.classList.remove('non-selected-font');
+    this.classList.add('selected-font');
+    document.documentElement.style.setProperty(`--textFont`, selectedFont);
 }
