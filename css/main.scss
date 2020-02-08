@@ -25,6 +25,9 @@ $primary-color: #fff;
 	--skewX: 0deg;
     --skewY: 0deg;
     --rotate: 0deg;
+    --textY: 50%;
+    --textX: 50%;
+    --textColor: #000000;
 }
 
 
@@ -57,6 +60,7 @@ main {
     margin: 20px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #title {
@@ -65,12 +69,17 @@ main {
     margin-bottom: 10px;
 }
 
+#image-url {
+    width: 400px;
+}
+
 // Canvas
 #canvas {
     background-color: white;
     overflow: hidden;
     width: 900px;
     max-height: 85vh;
+    position: relative;
 }
 
 #image {
@@ -95,11 +104,42 @@ main {
             rotate(var(--rotate));
 }
 
+#text-overlay {
+    position: absolute;
+    top: var(--textY);
+    left: var(--textX);
+    white-space: pre-wrap;
+    color: var(--textColor);
+}
+
+.custom-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+    textarea {
+        width: 300px;
+    };
+    input {
+        width: 150px;
+        margin-top: 5px;
+    }
+}
+
 // Controls 
 #controls {
     display: none;
-    margin-left: 10px;
-    align-self: center;
+    margin-top: 15px;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+}
+
+.controls-inner {
+    display: flex;
     flex-direction: column;
 }
 
@@ -132,11 +172,30 @@ main {
         text-align: right;
     }
     input {
-        width: 200px;
+        width: 150px;
         margin: 0 10px;
+        height: 20px;
     }
     p {
         width: 100px;
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    label {
+        width: 180px;
+        text-align: right;
+    }
+    input {
+        border: none;
+        width: 30px;
+        height: 20px;
+        margin: 0 110px 0 10px;
     }
 }
 
@@ -152,3 +211,54 @@ main {
 .pointer {
     cursor: pointer;
 }
+
+@-webkit-keyframes {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg)
+                scaleX(var(--scaleX))
+                scaleY(var(--scaleY))
+                scale(var(--scaleXY))
+                translateX(var(--translateX))
+                translateY(var(--translateY))
+                skewX(var(--skewX))
+                skewY(var(--skewY));
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg)
+                rotate(0deg)
+                scaleX(var(--scaleX))
+                scaleY(var(--scaleY))
+                scale(var(--scaleXY))
+                translateX(var(--translateX))
+                translateY(var(--translateY))
+                skewX(var(--skewX))
+                skewY(var(--skewY));
+    }
+  }
+  .spin {
+    -webkit-animation: rotating 1s linear infinite;
+    -moz-animation: rotating 1s linear infinite;
+    -ms-animation: rotating 1s linear infinite;
+    -o-animation: rotating 1s linear infinite;
+    animation: rotating 1s linear infinite;
+  }

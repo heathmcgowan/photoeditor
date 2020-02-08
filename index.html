@@ -17,103 +17,135 @@
         <h1 id="title">Photo Editor</h1>
         <div id="image-url-container">
             <label for="image-url">Image URL:</label>
-            <input type="url" name="imageUrl" id="image-url" value="">
-            <input type="submit" onclick="loadImage()" id="image-url-submit">
+            <input type="url" name="imageUrl" id="image-url" value="https://www.thesprucepets.com/thmb/jbD_0GJnIVGmnLve7QDe9hCDbPU=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/Stocksy_txp33a24e10lxw100_Medium_214761-5af9d6d7875db900360440a7.jpg">
+            <input type="submit" onclick="loadImage()" id="image-url-submit" value="Submit">
         </div>
     </header>
     <main>
         <div id="canvas">
+            <!-- <div id="gradient-overlay"></div> -->
             <img id="image" src="">
+            <p id="text-overlay"></p>
         </div>
         <div id="controls">
-            <div class="color-picker-container">
-                <label for="slider-background-color">Background Color</label>
-                <input type="color" name="background-color" value="#FFFFFF" class="color-pickers" data-contentToColor="canvas">
+            <div class="controls-inner">
+                <div class="color-picker-container">
+                    <label for="background-color">Background Color</label>
+                    <input type="color" name="background-color" value="#FFFFFF" name="background-color" class="color-pickers" data-contenttocolor="canvas">
+                </div>
+                <div class="slider-container">
+                    <label for="slider-brightness">Brightness</label>
+                    <input type="range" name="slider-brightness" min="0" max="200" value="100" id="slider-brightness" class="sliders" data-filter="brightness" data-suffix="%">
+                    <p id="brightness-value">100%</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-contrast">Contrast</label>
+                    <input type="range" name="slider-contrast" min="0" max="200" value="100" id="slider-contrast" class="sliders" data-filter="contrast" data-suffix="%">
+                    <p id="contrast-value">100%</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-saturate">Saturation</label>
+                    <input type="range" name="slider-saturate" min="0" max="300" value="100" id="slider-saturate" class="sliders" data-filter="saturate" data-suffix="%">
+                    <p id="saturate-value">100%</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-grayscale">Greyscale</label>
+                    <input type="range" name="slider-grayscale" min="0" max="100" value="0" id="slider-grayscale" class="sliders" data-filter="grayscale" data-suffix="%">
+                    <p id="grayscale-value">0%</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-sepia">Sepia</label>
+                    <input type="range" name="slider-sepia" min="0" max="100" value="0" id="slider-sepia" class="sliders" data-filter="sepia" data-suffix="%">
+                    <p id="sepia-value">0%</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-hue-rotate">Hue Rotate</label>
+                    <input type="range" name="slider-hue-rotate" min="0" max="360" value="0" id="slider-hue-rotate" class="sliders" data-filter="hue-rotate" data-suffix="deg">
+                    <p id="hue-rotate-value">0deg</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-invert">Invert</label>
+                    <input type="range" name="slider-invert" min="0" max="100" value="0" id="slider-invert" class="sliders" data-filter="invert" data-suffix="%">
+                    <p id="invert-value">0%</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-blur">Blur</label>
+                    <input type="range" name="slider-blur" min="0" max="20" value="0" id="slider-blur" class="sliders" data-filter="blur" data-suffix="px">
+                    <p id="blur-value">0px</p>
+                </div>
+                <div class="slider-container">
+                    <label for="slider-opacity">Opacity</label>
+                    <input type="range" name="slider-opacity" min="0" max="100" value="100" id="slider-opacity" class="sliders" data-filter="opacity" data-suffix="%">
+                    <p id="opacity-value">100%</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-scaleXY">Scale X &amp; Y</label>
+                    <input type="range" name="slider-scaleXY" min="0" max="3" value="1" step="0.05" id="slider-scaleXY" class="sliders" data-filter="scaleXY" data-suffix="">
+                    <p id="scaleXY-value">1</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-scaleX">Scale X</label>
+                    <input type="range" name="slider-scaleX" min="0" max="3" value="1" step="0.05" id="slider-scaleX" class="sliders" data-filter="scaleX" data-suffix="">
+                    <p id="scaleX-value">1</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-scaleY">Scale Y</label>
+                    <input type="range" name="slider-scaleY" min="0" max="3" value="1" step="0.05" id="slider-scaleY" class="sliders" data-filter="scaleY" data-suffix="">
+                    <p id="scaleY-value">1</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-translateX">Move X</label>
+                    <input type="range" name="slider-translateX" min="-900" max="900" value="0" id="slider-translateX" class="sliders" data-filter="translateX" data-suffix="px">
+                    <p id="translateX-value">0px</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-translateY">Move Y</label>
+                    <input type="range" name="slider-translateY" min="-2000" max="2000" value="0" id="slider-translateY" class="sliders" data-filter="translateY" data-suffix="px">
+                    <p id="translateY-value">0px</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-skewX">Skew X</label>
+                    <input type="range" name="slider-skewX" min="-90" max="90" value="0" id="slider-skewX" class="sliders" data-filter="skewX" data-suffix="deg">
+                    <p id="skewX-value">0deg</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-skewY">Skew Y</label>
+                    <input type="range" name="slider-skewY" min="-90" max="90" value="0" id="slider-skewY" class="sliders" data-filter="skewY" data-suffix="deg">
+                    <p id="skewY-value">0deg</p>
+                </div>
+                <div class="slider-container translate-setting">
+                    <label for="slider-rotate">Rotate</label>
+                    <input type="range" name="slider-rotate" min="0" max="360" value="0" id="slider-rotate" class="sliders" data-filter="rotate" data-suffix="deg">
+                    <p id="rotate-value">0deg</p>
+                </div>
+                <div class="checkbox-container">
+                    <label for="spin-checkbox">Spin!</label>
+                    <input type="checkbox" name="spin-checkbox" id="spin-checkbox">
+                </div>
             </div>
-            <div class="slider-container">
-                <label for="slider-brightness">Brightness</label>
-                <input type="range" name="slider-brightness" min="0" max="200" value="100" id="slider-brightness" class="sliders" data-filter="brightness" data-suffix="%">
-                <p id="brightness-value">100%</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-contrast">Contrast</label>
-                <input type="range" name="slider-contrast" min="0" max="200" value="100" id="slider-contrast" class="sliders" data-filter="contrast" data-suffix="%">
-                <p id="contrast-value">100%</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-saturate">Saturation</label>
-                <input type="range" name="slider-saturate" min="0" max="300" value="100" id="slider-saturate" class="sliders" data-filter="saturate" data-suffix="%">
-                <p id="saturate-value">100%</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-grayscale">Greyscale</label>
-                <input type="range" name="slider-grayscale" min="0" max="100" value="0" id="slider-grayscale" class="sliders" data-filter="grayscale" data-suffix="%">
-                <p id="grayscale-value">0%</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-sepia">Sepia</label>
-                <input type="range" name="slider-sepia" min="0" max="100" value="0" id="slider-sepia" class="sliders" data-filter="sepia" data-suffix="%">
-                <p id="sepia-value">0%</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-hue-rotate">Hue Rotate</label>
-                <input type="range" name="slider-hue-rotate" min="0" max="360" value="0" id="slider-hue-rotate" class="sliders" data-filter="hue-rotate" data-suffix="deg">
-                <p id="hue-rotate-value">0deg</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-invert">Invert</label>
-                <input type="range" name="slider-invert" min="0" max="100" value="0" id="slider-invert" class="sliders" data-filter="invert" data-suffix="%">
-                <p id="invert-value">0%</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-blur">Blur</label>
-                <input type="range" name="slider-blur" min="0" max="20" value="0" id="slider-blur" class="sliders" data-filter="blur" data-suffix="px">
-                <p id="blur-value">0px</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-opacity">Opacity</label>
-                <input type="range" name="slider-opacity" min="0" max="100" value="100" id="slider-opacity" class="sliders" data-filter="opacity" data-suffix="%">
-                <p id="opacity-value">100%</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-scaleXY">Scale X &amp; Y</label>
-                <input type="range" name="slider-scaleXY" min="0" max="3" value="1" step="0.05" id="slider-scaleXY" class="sliders" data-filter="scaleXY" data-suffix="">
-                <p id="scaleXY-value">1</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-scaleX">Scale X</label>
-                <input type="range" name="slider-scaleX" min="0" max="3" value="1" step="0.05" id="slider-scaleX" class="sliders" data-filter="scaleX" data-suffix="">
-                <p id="scaleX-value">1</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-scaleY">Scale Y</label>
-                <input type="range" name="slider-scaleY" min="0" max="3" value="1" step="0.05" id="slider-scaleY" class="sliders" data-filter="scaleY" data-suffix="">
-                <p id="scaleY-value">1</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-translateX">Move X</label>
-                <input type="range" name="slider-translateX" min="-900" max="900" value="0" id="slider-translateX" class="sliders" data-filter="translateX" data-suffix="px">
-                <p id="translateX-value">0px</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-translateY">Move Y</label>
-                <input type="range" name="slider-translateY" min="-2000" max="2000" value="0" id="slider-translateY" class="sliders" data-filter="translateY" data-suffix="px">
-                <p id="translateY-value">0px</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-skewX">Skew X</label>
-                <input type="range" name="slider-skewX" min="-90" max="90" value="0" id="slider-skewX" class="sliders" data-filter="skewX" data-suffix="deg">
-                <p id="skewX-value">0deg</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-skewY">Skew Y</label>
-                <input type="range" name="slider-skewY" min="-90" max="90" value="0" id="slider-skewY" class="sliders" data-filter="skewY" data-suffix="deg">
-                <p id="skewY-value">0deg</p>
-            </div>
-            <div class="slider-container">
-                <label for="slider-rotate">Rotate</label>
-                <input type="range" name="slider-rotate" min="0" max="360" value="0" id="slider-rotate" class="sliders" data-filter="rotate" data-suffix="deg">
-                <p id="rotate-value">0deg</p>
+            <div class="controls-inner">
+                <div class="custom-text-container">
+                    <label for="custom-text">Add Text</label>
+                    <textarea name="custom-text" rows="4" id="custom-text"></textarea>
+                    <input type="submit" onclick="addText()" id="custom-text-submit" value="Add">
+                    <input type="submit" onclick="removeText()" id="custom-text-remove" value="Remove">
+                </div>
+                <div class="color-picker-container">
+                    <label for="text-color">Text Color</label>
+                    <input type="color" name="text-color" value="#000000" id="text-color" class="color-pickers" data-contenttocolor="text">
+                </div>
+                <!-- <div class="checkbox-container">
+                    <label for="gradient-overlay-checkbox">Show Gradient Overlay</label>
+                    <input type="checkbox" name="gradient-overlay" id="gradient-overlay-checkbox">
+                </div>
+                <div class="color-picker-container">
+                    <label for="gradient-color-1">Gradient Start Color</label>
+                    <input type="color" name="gradient-color-1" value="#FFFFFF" id="gradient-color-1" class="color-pickers" data-contenttocolor="gradient1">
+                </div>
+                <div class="color-picker-container">
+                    <label for="gradient-color-2">Gradient End Color</label>
+                    <input type="color" name="gradient-color-2" value="#FFFFFF" id="gradient-color-2" class="color-pickers" data-contenttocolor="gradient2">
+                </div> -->
             </div>
         </div>
     </main>
