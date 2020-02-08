@@ -1,10 +1,91 @@
+:root {
+  --brightness: 100%;
+  --contrast: 100%;
+  --saturate: 100%;
+  --grayscale: 0%;
+  --sepia: 0%;
+  --hue-rotate: 0deg;
+  --invert: 0%;
+  --blur: 0px;
+  --opacity: 100%;
+  --scaleXY: 1;
+  --scaleX: 1;
+  --scaleY: 1;
+  --translateX: 0px;
+  --translateY: 0px;
+  --skewX: 0deg;
+  --skewY: 0deg;
+  --rotate: 0deg; }
+
 body {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
-  color: #171324; }
+  color: #fff;
+  background-color: #1b1c2f; }
 
 html {
   scroll-behavior: smooth; }
+
+header {
+  margin: 20px; }
+
+main {
+  margin: 20px;
+  display: flex;
+  flex-direction: row; }
+
+#title {
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 10px; }
+
+#canvas {
+  background-color: white;
+  overflow: hidden;
+  width: 900px;
+  max-height: 85vh; }
+
+#image {
+  display: block;
+  width: 100%;
+  filter: brightness(var(--brightness)) contrast(var(--contrast)) saturate(var(--saturate)) grayscale(var(--grayscale)) sepia(var(--sepia)) hue-rotate(var(--hue-rotate)) invert(var(--invert)) blur(var(--blur)) opacity(var(--opacity));
+  transform: scaleX(var(--scaleX)) scaleY(var(--scaleY)) scale(var(--scaleXY)) translateX(var(--translateX)) translateY(var(--translateY)) skewX(var(--skewX)) skewY(var(--skewY)) rotate(var(--rotate)); }
+
+#controls {
+  display: none;
+  margin-left: 10px;
+  align-self: center;
+  flex-direction: column; }
+
+.color-picker-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px; }
+  .color-picker-container label {
+    width: 180px;
+    text-align: right; }
+  .color-picker-container input {
+    border: none;
+    width: 30px;
+    height: 30px;
+    margin: 0 110px 0 10px; }
+
+.slider-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; }
+  .slider-container label {
+    width: 120px;
+    text-align: right; }
+  .slider-container input {
+    width: 200px;
+    margin: 0 10px; }
+  .slider-container p {
+    width: 100px; }
 
 .hidden {
   display: none; }
